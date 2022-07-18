@@ -67,8 +67,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:latest
+            ${{ env.OWNER_LC }}/${{ github.repository#*/ }}:latest
+            ghcr.io/${{ env.OWNER_LC }}/${{ github.repository#*/ }}:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
